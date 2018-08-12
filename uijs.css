@@ -1,0 +1,91 @@
+@import "//fonts.googleapis.com/css?family=Open+Sans";
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+body{
+    font-family: 'Helvetica', sans-serif;
+    background-color: black;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*{
+    display: block;
+}
+
+button-control{
+    display: block;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.15;
+}
+
+buttonset{
+    margin: 10px;
+}
+
+buttonset button-control{
+    margin: 0px;
+    display: inline-block;
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    padding: 7px;
+}
+
+buttonset button-control:not(:last-child){
+    margin-right: 10px;
+}
+
+layoutitem{
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: black;
+    line-height: 1.15;
+    padding: 8px;
+    font-size: 16px;
+    color: black !important;
+}
+
+layout{
+    display: block;
+    margin: 0px 10px;
+}
+
+header{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+content{
+    font-size: 15px;
+}
+
+overlay{
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: fixed;
+    z-index: 10;
+}
+
+blurred-background{
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);
+    -o-filter: blur(1px);
+    filter: blur(1px);
+    z-index: 11;
+}
+
+overlay content{
+    z-index: 12;
+    color: white;
+}
