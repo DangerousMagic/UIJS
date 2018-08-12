@@ -1,15 +1,15 @@
 class Debug {
     static error(text) {
-        console.log('%c ' + text, "color: white; background-color: red; border-radius: 4px;");
+        console.log('%c' + text, "color: white; padding: 5px; background-color: red; border-radius: 4px;");
     }
 
     static warn(text) {
-        console.log('%c ' + text, "color: black; background-color: yellow; border-radius: 4px;");
+        console.log('%c' + text, "color: black; padding: 5px; background-color: yellow; border-radius: 4px;");
 
     }
 
     static info(text) {
-        console.log('%c ' + text, "color: black; background-color: blue; border-radius: 4px;");
+        console.log('%c' + text, "color: white; padding: 5px; background-color: blue; border-radius: 4px;");
     }
 }
 
@@ -179,6 +179,12 @@ class Header extends EditableView {
     }
 }
 
+class LayoutHeader extends EditableView {
+    constructor() {
+        super("layoutHeader");
+    }
+}
+
 class Content extends EditableView {
     constructor() {
         super("Content");
@@ -251,11 +257,7 @@ class Layout extends View {
     }
 
     addItem(item) {
-        if (item.constructor.name == "LayoutItem") {
             this.getView().append(item.getView());
-        } else {
-            Debug.error("Attempt to add '" + item.constructor.name + "' as LayoutItem to Layout failed");
-        }
     }
 }
 
@@ -283,15 +285,15 @@ class LayoutItem extends View {
         return this;
     }
 
-    getHeader(){
+    getHeader() {
         return this.LayoutItemHeader;
     }
 
-    getBody(){
+    getBody() {
         return this.LayoutItemBody;
     }
 
-    addTo(parent){
+    addTo(parent) {
         parent.addChild(this);
 
         return this;
@@ -315,39 +317,4 @@ class ButtonSet extends View {
         return this;
     }
 
-}
-
-class Overlay extends View {
-    constructor() {
-        super("Overlay");
-        // TODO: Add parameter errors
-
-        var bbg = new View("blurred-background");
-        var content = new Content;
-
-        this.addChild(bbg);
-        this.addChild(content);
-
-        this.view.style.opacity = "0";
-        this.view.style.display = "none";
-    }
-
-    hide(){
-        this.view.style.opacity = "0";
-        setTimeout(function () {
-            this.view.style.display = "none";
-        }, 250);
-
-        return this;
-    }
-
-    show(){
-
-        this.view.style.opacity = "1";
-        setTimeout(function () {
-            this.view.style.display = "block";
-        }, 250);
-
-        return this;
-    }
 }
